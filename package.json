@@ -2,6 +2,11 @@
     "name": "chatito",
     "displayName": "Chatito",
     "description": "Syntax highlighting for Chatito files",
+    "publisher": "nimfin",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nimf/chatito-vscode.git"
+    },
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.33.0"
@@ -9,6 +14,7 @@
     "categories": [
         "Programming Languages"
     ],
+    "license": "MIT",
     "contributes": {
         "languages": [{
             "id": "chatito",
