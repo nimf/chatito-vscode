@@ -1,0 +1,77 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Chatito",
+	"patterns": [
+		{
+			"include": "#entities"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"entities": {
+			"patterns": [{
+				"name": "entity.name.function",
+				"match": "^~\\[.*?(\\?)\\]",
+				"captures": {
+					"1": {
+						"name": "invalid"
+					}
+				}
+			}, {
+				"name": "entity.name.function",
+				"match": "~\\[.*?(#.+?)?\\]",
+				"captures": {
+					"1": {
+						"name": "entity.other.attribute-name"
+					}
+				}
+			}, {
+				"name": "entity.name.tag",
+				"match": "@\\[.*?(#.+?)?\\](\\(\\s*('.+?'|\".+?\")\\s*:\\s*('.+?'|\".+?\")\\s*(,\\s*('.+?'|\".+?\")\\s*:\\s*('.+?'|\".+?\")\\s*)*\\))?",
+				"captures": {
+					"1": {
+						"name": "entity.other.attribute-name"
+					},
+					"3": {
+						"name": "variable"
+					},
+					"4": {
+						"name": "string"
+					},
+					"6": {
+						"name": "variable"
+					},
+					"7": {
+						"name": "string"
+					}
+				}
+			}, {
+				"name": "entity.name.type",
+				"match": "%\\[.*?\\](\\(\\s*('.+?'|\".+?\")\\s*:\\s*('.+?'|\".+?\")\\s*(,\\s*('.+?'|\".+?\")\\s*:\\s*('.+?'|\".+?\")\\s*)*\\))?",
+				"captures": {
+					"2": {
+						"name": "variable"
+					},
+					"3": {
+						"name": "string"
+					},
+					"5": {
+						"name": "variable"
+					},
+					"6": {
+						"name": "string"
+					}
+				}
+			}]
+		},
+		"comments": {
+			"begin": "^//",
+			"end": "\\n",
+			"name": "comment",
+			"patterns": []
+		}
+	},
+	"scopeName": "source.chatito"
+}

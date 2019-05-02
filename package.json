@@ -1,0 +1,25 @@
+{
+    "name": "chatito",
+    "displayName": "Chatito",
+    "description": "Syntax highlighting for Chatito files",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.33.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "chatito",
+            "aliases": ["Chatito", "chatito"],
+            "extensions": [".chatito"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "chatito",
+            "scopeName": "source.chatito",
+            "path": "./syntaxes/chatito.tmLanguage.json"
+        }]
+    }
+}
