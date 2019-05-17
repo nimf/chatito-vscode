@@ -3,6 +3,9 @@
 	"name": "Chatito",
 	"patterns": [
 		{
+			"include": "#imports"
+		},
+		{
 			"include": "#entities"
 		},
 		{
@@ -10,8 +13,21 @@
 		}
 	],
 	"repository": {
+		"imports": {
+			"patterns": [{
+				"comment": "Import statement",
+				"name": "keyword.control",
+				"match": "^import\\s+(.*)$",
+				"captures": {
+					"1": {
+						"name": "string"
+					}
+				}
+			}]
+		},
 		"entities": {
 			"patterns": [{
+				"comment": "Invalid use of question mark in alias definition",
 				"name": "entity.name.function",
 				"match": "^~\\[.*?(\\?)\\]",
 				"captures": {
@@ -20,6 +36,15 @@
 					}
 				}
 			}, {
+				"comment": "Correct probability operator",
+				"name": "keyword.control",
+				"match": "^    \\*\\[\\d{1,3}]"
+			}, {
+				"comment": "Invalid probability operator",
+				"name": "invalid",
+				"match": "\\*\\[.*?]"
+			}, {
+				"comment": "Alias",
 				"name": "entity.name.function",
 				"match": "~\\[.*?(#.+?)?\\]",
 				"captures": {
@@ -28,6 +53,7 @@
 					}
 				}
 			}, {
+				"comment": "Slot",
 				"name": "entity.name.tag",
 				"match": "@\\[.*?(#.+?)?\\](\\(\\s*('.+?'|\".+?\")\\s*:\\s*('.+?'|\".+?\")\\s*(,\\s*('.+?'|\".+?\")\\s*:\\s*('.+?'|\".+?\")\\s*)*\\))?",
 				"captures": {
@@ -48,8 +74,9 @@
 					}
 				}
 			}, {
+				"comment": "Intent definition",
 				"name": "entity.name.type",
-				"match": "%\\[.*?\\](\\(\\s*('.+?'|\".+?\")\\s*:\\s*('.+?'|\".+?\")\\s*(,\\s*('.+?'|\".+?\")\\s*:\\s*('.+?'|\".+?\")\\s*)*\\))?",
+				"match": "^%\\[.*?\\](\\(\\s*('.+?'|\".+?\")\\s*:\\s*('.+?'|\".+?\")\\s*(,\\s*('.+?'|\".+?\")\\s*:\\s*('.+?'|\".+?\")\\s*)*\\))?",
 				"captures": {
 					"2": {
 						"name": "variable"
@@ -67,7 +94,7 @@
 			}]
 		},
 		"comments": {
-			"begin": "^//",
+			"begin": "^(//|#)",
 			"end": "\\n",
 			"name": "comment",
 			"patterns": []
