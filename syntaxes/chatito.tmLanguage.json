@@ -53,9 +53,9 @@
 					}
 				}
 			}, {
-				"comment": "Slot",
+				"comment": "Slot definition",
 				"name": "entity.name.tag",
-				"match": "@\\[.*?(#.+?)?\\](\\(\\s*('.+?'|\".+?\")\\s*:\\s*('.+?'|\".+?\")\\s*(,\\s*('.+?'|\".+?\")\\s*:\\s*('.+?'|\".+?\")\\s*)*\\))?",
+				"match": "^@\\[.*?(#.+?)?\\](\\(\\s*('.+?'|\".+?\")\\s*:\\s*('.+?'|\".+?\")\\s*(,\\s*('.+?'|\".+?\")\\s*:\\s*('.+?'|\".+?\")\\s*)*\\))?",
 				"captures": {
 					"1": {
 						"name": "entity.other.attribute-name"
@@ -71,6 +71,15 @@
 					},
 					"7": {
 						"name": "string"
+					}
+				}
+			}, {
+				"comment": "Slot",
+				"name": "entity.name.tag",
+				"match": "@\\[.*?(#.+?)?\\]",
+				"captures": {
+					"1": {
+						"name": "entity.other.attribute-name"
 					}
 				}
 			}, {
