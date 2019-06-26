@@ -38,7 +38,7 @@
 			}, {
 				"comment": "Correct probability operator",
 				"name": "keyword.control",
-				"match": "^    \\*\\[\\d{1,3}]"
+				"match": "^    \\*\\[(\\d+|\\d*(\\.\\d+)?)%?]"
 			}, {
 				"comment": "Invalid probability operator",
 				"name": "invalid",
